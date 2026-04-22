@@ -6,9 +6,10 @@ interface RevealSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  style?: React.CSSProperties;
 }
 
-export default function RevealSection({ children, className = "", delay = 0 }: RevealSectionProps) {
+export default function RevealSection({ children, className = "", delay = 0, style }: RevealSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function RevealSection({ children, className = "", delay = 0 }: R
   }, [delay]);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`reveal ${className}`} style={style}>
       {children}
     </div>
   );

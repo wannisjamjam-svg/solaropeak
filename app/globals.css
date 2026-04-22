@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green-solar: #2D6A4F;
+  --green-light: #40916C;
+  --green-pale: #D8F3DC;
+  --orange-energy: #E76F51;
+  --orange-light: #F4A261;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply text-gray-800 bg-white;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-green-solar { color: #2D6A4F; }
+  .bg-green-solar { background-color: #2D6A4F; }
+  .border-green-solar { border-color: #2D6A4F; }
+  .text-green-light { color: #40916C; }
+  .bg-green-light { background-color: #40916C; }
+  .bg-green-pale { background-color: #D8F3DC; }
+  .text-orange-energy { color: #E76F51; }
+  .bg-orange-energy { background-color: #E76F51; }
+  .border-orange-energy { border-color: #E76F51; }
+  .text-orange-light { color: #F4A261; }
+  .bg-orange-light { background-color: #F4A261; }
+
+  .hover\:bg-orange-energy:hover { background-color: #E76F51; }
+  .hover\:bg-green-solar:hover { background-color: #2D6A4F; }
+  .hover\:text-orange-energy:hover { color: #E76F51; }
+}
+
+/* Animated section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient hero background — inclut aussi le pattern pour éviter l'écrasement CSS */
+.hero-gradient {
+  background-color: #1B4332;
+  background-image: linear-gradient(135deg, #1B4332 0%, #2D6A4F 40%, #40916C 70%, #1d3d2e 100%);
+}
+
+/* Solar panel decorative pattern — ré-inclut le gradient pour le combiner */
+.solar-pattern {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    linear-gradient(135deg, #1B4332 0%, #2D6A4F 40%, #40916C 70%, #1d3d2e 100%);
+}
+
+/* Card hover effect */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(45, 106, 79, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #40916C; }
